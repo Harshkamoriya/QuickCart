@@ -10,7 +10,7 @@ export async function POST(request){
         const {userId} = getAuth();
         const {address , items}  = await request.json();
         if(!address || items.length ===0){
-            return NextResponse.json({success:true, message::'Invalid data'})
+            return NextResponse.json({success:true, message:'Invalid data'})
         }
 
         // calculate amount using items
