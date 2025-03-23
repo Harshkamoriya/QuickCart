@@ -1,6 +1,6 @@
 import Product from "@/models/Product";
 import User from "@/models/User";
-import { getAuth } from "@clerk/nextjs/dist/types/server";
+import { getAuth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
 
