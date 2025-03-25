@@ -6,9 +6,9 @@ import { NextResponse } from "next/server";
 
 
 export async function GET(request){
-
     try {
-        const {userId} = getAuth()
+
+        const {userId} = getAuth(request)
         const isSeller = await authSeller(userId)
 
         if(!isSeller){
