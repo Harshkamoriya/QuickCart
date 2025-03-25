@@ -7,7 +7,7 @@ import Product from "@/models/Product";
 export async function GET(request){
 try {
     
-const {userId} = getAuth()
+const {userId} = getAuth(request)
 
 const isSeller = authSeller(userId);
 if(!isSeller){
