@@ -4,6 +4,7 @@ import Product from "@/models/Product";
 import { getAuth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
+
 export async function GET(request) {
     try {
         const { userId } = getAuth(request); // ✅ Fix: Pass `request`
@@ -18,6 +19,7 @@ export async function GET(request) {
 
         return NextResponse.json({ success: true, orders });
     } catch (error) {
+        console.error(" error running the code" , error.message)
         return NextResponse.json({ success: false, message: error.message });
     }
 }
