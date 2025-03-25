@@ -21,6 +21,8 @@ const  products = await Product.find({})
 
 return NextResponse.json({success:true , products})
 } catch (error) {
+    console.log("getting error ")
+
     return NextResponse.json({success:false  , message :error.message})
 }
 

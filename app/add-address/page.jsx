@@ -22,6 +22,8 @@ const AddAddress = () => {
     })
 
     const onSubmitHandler = async (e) => {
+        console.log("inside the onsubmit handler of the add address")
+
         e.preventDefault();
 
         try {

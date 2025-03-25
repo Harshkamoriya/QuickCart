@@ -40,6 +40,7 @@ const Orders = () => {
         } catch (error) {
             console.error("Error fetching orders:", error); // Log error for debugging
             toast.error("Failed to fetch orders!");
+            toast.error(error.message);
         }
     };
     
