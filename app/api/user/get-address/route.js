@@ -1,6 +1,7 @@
 import connectDB from "@/config/db";
 import Address from "@/models/Address";
 import { getAuth } from "@clerk/nextjs/server";
+import { NextResponse } from "next/server";
 
 
 
@@ -14,6 +15,6 @@ export async function GET(request){
         return NextResponse.json({success:true , addresses});
 
     } catch (error) {
-        return Nextresponse.json({success:false ,message : error.message})
+        return NextResponse.json({success:false ,message : error.message})
     }
 }
