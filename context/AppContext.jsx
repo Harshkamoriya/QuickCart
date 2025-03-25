@@ -7,6 +7,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useAuth } from "@clerk/nextjs";
 
+
 export const AppContext = createContext();
 
 export const useAppContext = () => {
@@ -68,7 +69,7 @@ export const AppContextProvider = (props) => {
     }
 
     const addToCart = async (itemId) => {
-
+        
         let cartData = structuredClone(cartItems);
         if (cartData[itemId]) {
             cartData[itemId] += 1;

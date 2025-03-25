@@ -5,6 +5,8 @@ import Image from "next/image";
 import { useAppContext } from "@/context/AppContext";
 import Footer from "@/components/seller/Footer";
 import Loading from "@/components/Loading";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 const ProductList = () => {
 
@@ -24,7 +26,7 @@ const ProductList = () => {
       setProducts(data.products)
       setLoading(false)
     }else{
-      toast.error( error.message)
+      toast.error( data.message)
     }
     
    } catch (error) {

@@ -4,6 +4,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import { useState } from "react";
+import toast from "react-hot-toast";
+import axios from "axios";
 import { useAppContext } from "@/context/AppContext";
 
 const AddAddress = () => {

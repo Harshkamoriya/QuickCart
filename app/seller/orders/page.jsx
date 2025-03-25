@@ -5,6 +5,8 @@ import Image from "next/image";
 import { useAppContext } from "@/context/AppContext";
 import Footer from "@/components/seller/Footer";
 import Loading from "@/components/Loading";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 const Orders = () => {
 
@@ -14,25 +16,33 @@ const Orders = () => {
     const [loading, setLoading] = useState(true);
 
     const fetchSellerOrders = async () => {
-
         try {
-            const token = await getToken()
-
-            const {data} = await axios.get('/api/order/seller-orders', {headers:{Authorization: `Bearer ${token}`} })
-            if(data.success){
+            const token = await getToken();
+            
+            if (!token) {
+                toast.error("Authentication token not found!");
+                return; // Stop execution if token is missing
+            }
+    
+            console.log("Token received:", token); // Debugging output
+    
+            const { data } = await axios.get('/api/order/seller-orders', {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+    
+            if (data.success) {
                 setOrders(data.orders);
                 setLoading(false);
-
-            }else{
-                toast.error(data.message)
+            } else {
+                toast.error(data.message);
             }
-
-            
+    
         } catch (error) {
-            toast.error(error.message)
-            
+            console.error("Error fetching orders:", error); // Log error for debugging
+            toast.error("Failed to fetch orders!");
         }
-    }
+    };
+    
 
     useEffect(() => {
         if(user){
